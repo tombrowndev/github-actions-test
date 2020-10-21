@@ -10,13 +10,16 @@ jobs:
       - name: List Files Before Checkout
         run: |
           pwd
-          ls
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files After Checkout
         run: |
           pwd
-          ls
+          ls -a
       - name: Simple JS Action
         id: hello-world
         uses: actions/hello-world-javascript-action@v1
