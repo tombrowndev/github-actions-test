@@ -25,7 +25,7 @@ jobs:
       - name: Step with docker (Run a script)
         uses: docker://node:12.9-alpine
         with:
-          entrypoint: ./script.sh
+          entrypoint: "./script.sh"
           args: "Some string"
 
   node-docker:
