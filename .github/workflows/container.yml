@@ -2,8 +2,29 @@ name: Container
 on: push
 
 jobs:
+
+
+  docker-steps:
+    runs-on: ubuntu-latest
+    container:
+      image: node:10.22-alpine
+    steps:
+      - name: Log node version
+        run: node -v
+      - name: Step with docker
+        uses: docker://node:12.9-alpine
+        with:
+          entrypoint: /bin/echo
+          args: Hello World
+      - name: Step with docker
+        uses: docker://node:12.9-alpine
+        with:
+          entrypoint: /usr/local/bin/node
+          args: -v
+
   node-docker:
     runs-on: ubuntu-latest
+    if: github.event_name == 'X'
     services:
       app:
         image: alialaa17/node-api
