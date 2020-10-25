@@ -5,6 +5,7 @@ jobs:
   node-version:
     strategy:
         matrix:
+          os: [macos-latest, ubuntu-latest, windows-latest]
           node_version: [6,8,10]
     runs-on: ubuntu-latest
     steps:
